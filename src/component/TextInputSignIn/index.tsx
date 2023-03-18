@@ -11,6 +11,7 @@ const TextInputSignIn = (props: TextInputModel) => {
             <Icon name={props.icon} size={24} color="#aeaeae" />
          </View>
          <TextInput
+            placeholderTextColor={'#000'}
             placeholder={props.placeholder}
             style={styles.textInput}
             value={props.value}
@@ -40,6 +41,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#eaeaea',
       marginLeft: 16,
       flex: 1,
+      color: 'black',
    },
 })
 

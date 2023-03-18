@@ -5,7 +5,7 @@ import {PrimaryButtonModel} from '../../models/PrimaryButtonModel'
 const PrimaryButton = (props: PrimaryButtonModel) => {
    return (
       <View>
-         <TouchableOpacity style={styles.button}>
+         <TouchableOpacity style={styles.button} onPress={props.onPress}>
             <Text style={styles.textButton}>{props.textName}</Text>
          </TouchableOpacity>
       </View>

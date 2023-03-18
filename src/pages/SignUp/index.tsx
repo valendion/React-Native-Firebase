@@ -1,25 +1,25 @@
-import {useNavigation} from '@react-navigation/native'
-import {NativeStackNavigationProp} from '@react-navigation/native-stack'
+import {Image, StatusBar, StyleSheet, Text, View} from 'react-native'
 import React, {useState} from 'react'
-import {Alert, Image, StatusBar, StyleSheet, Text, View} from 'react-native'
-import PrimaryButton from '../../component/PrimaryButton'
 import TextInputSignIn from '../../component/TextInputSignIn'
+import PrimaryButton from '../../component/PrimaryButton'
+import {NativeStackNavigationProp} from '@react-navigation/native-stack'
 import {RouteStact} from '../../utils/routes'
+import {useNavigation} from '@react-navigation/native'
 
-type signInScreenProp = NativeStackNavigationProp<RouteStact, 'SignIn'>
-const SignIn = () => {
+type signUpScreenProp = NativeStackNavigationProp<RouteStact, 'SignUp'>
+const SignUp = () => {
    const [email, setEmail] = useState('')
    const [password, setPassword] = useState('')
-   const navigation = useNavigation<signInScreenProp>()
+   const navigation = useNavigation<signUpScreenProp>()
    return (
       <View style={styles.container}>
          <StatusBar barStyle="dark-content" backgroundColor="#fff" />
          <View style={styles.containerSignIn}>
             <Image
-               source={require('../../assets/images/ic_sign_in.png')}
+               source={require('../../assets/images/ic_sign_up.png')}
                style={styles.image}
             />
-            <Text style={styles.textTitle}>Sign In</Text>
+            <Text style={styles.textTitle}>Sign Up</Text>
          </View>
 
          <TextInputSignIn
@@ -38,22 +38,15 @@ const SignIn = () => {
             setValue={setPassword}
          />
 
-         <PrimaryButton textName={'Sign In'} onPress={() => {}} />
-
-         <Text style={styles.textSignUp}>
-            Don't have an account ?
-            <Text
-               onPress={() => {
-                  navigation.navigate('SignUp')
-               }}
-               style={styles.textSignUpClick}>
-               {' '}
-               Sign Up
-            </Text>
-         </Text>
+         <PrimaryButton
+            textName={'Sign Up'}
+            onPress={() => navigation.navigate('SignIn')}
+         />
       </View>
    )
 }
+
+export default SignUp
 
 const styles = StyleSheet.create({
    container: {
@@ -91,9 +84,6 @@ const styles = StyleSheet.create({
       marginTop: 16,
       textAlign: 'center',
    },
-   textSignUpClick: {
-      color: '#6C63FF',
-   },
    iconInputText: {
       backgroundColor: '#eaeaea',
       justifyContent: 'center',
@@ -105,5 +95,3 @@ const styles = StyleSheet.create({
       flex: 1,
    },
 })
-
-export default SignIn
